@@ -4,11 +4,14 @@ import { ConfigService } from '@nestjs/config';
 @Injectable()
 export class AppService {
   constructor(private readonly configService: ConfigService) { }
-  getHello(): string {
+  getHello() {
     const enviromentVariable = this.configService.get<string>(`environment`);
     console.log(`Environment Variable TEST: ${enviromentVariable} `);
-    return 'Hello World!';
+    return {
+      data: 'Hello World!',
+      meta: {
+        pages: 10,
+      }
+    }
   }
-
-
 }
