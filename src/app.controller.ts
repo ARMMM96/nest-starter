@@ -7,6 +7,9 @@ export class AppController {
 
   @Get()
   getHello(): string {
+    () => {
+      console.log('This is a simple arrow function');
+    } 
     return this.appService.getHello();
   }
 }
